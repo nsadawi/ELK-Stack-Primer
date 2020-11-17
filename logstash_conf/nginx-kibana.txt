@@ -1,0 +1,9 @@
+#add this line to the bottom of /etc/nginx/sites-available/default 
+server{
+        listen 3333;
+        server_name 3.238.132.177;
+        location / {
+                proxy_pass http://localhost:5601;
+        }
+}
+
