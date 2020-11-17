@@ -1,0 +1,66 @@
+Define an Index:
+curl -XPUT 'http://localhost:9200/my_index' -i
+
+Example Document:
+{
+"entry_type":"quote",
+"quote_id":7,
+"mood":"happy",
+"speaker":"Noureddin Sadawi",
+"quote_entry":"Love for humanity what you love for yourself!"
+}
+
+
+PUT quote_index/quote/1
+{
+"quote": "I don’t count my situps. I only start counting once it starts hurting",
+"name": "Muhammad Ali",
+"year": 1977,
+"where": "San Jose"
+}
+
+
+
+PUT quote_index/quote/2
+{
+"quote": "I’ve failed over and over again in my life. And that is why I succeed.",
+"name": "Michael Jordan",
+"year": 1999,
+"where": "New York"
+}
+
+PUT quote_index/quote/3
+{
+"quote": "If you fail to prepare, you’re prepared to fail.",
+"name": "Mark Spitz",
+"year": 1972,
+"where": "Toronto"
+}
+
+PUT quote_index/quote/4
+{
+"quote": "It is not the size of a man but the size of his heart that matters.",
+"name": "Evander Holyfield",
+"year": 2002,
+"where": "London"
+}
+
+
+
+Index a Document
+curl -XPUT 'http://localhost:9200/my_index/my_type/1' -H 'Content-Type: application/json' -d
+'{
+"type":"quote",
+"quote_id":7,
+"mood":"happy",
+"speaker":"Noureddin Sadawi",
+"quote_entry":"Love for humanity what you love for yourself!"
+}'
+
+
+
+
+GET quote_index/quote/3?_source=name,year
+
+DELETE quote_index/quote/3
+
