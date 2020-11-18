@@ -1,0 +1,10 @@
+PUT crimes-csv-drop
+{
+  "mappings": {
+    "properties": {
+      "geoLoc": {
+        "type": "geo_point"
+      }
+    }
+  }
+}
