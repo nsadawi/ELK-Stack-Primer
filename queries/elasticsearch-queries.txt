@@ -11,6 +11,81 @@ Example Document:
 }
 
 
+
+
+Index a document
+
+curl -XPUT 'http://localhost:9200/my_index/my_type/1' -H 'Content-Type: application/json' -d
+'
+{
+"entry_type":"quote",
+"quote_id":7,
+"mood":"happy",
+"speaker":"Noureddin Sadawi",
+"quote_entry":"Love for humanity what you love for yourself!"
+}
+'
+
+Index without specifying an ID
+curl -XPUT 'http://localhost:9200/my_index/my_type/' -H 'Content-Type: application/json' -d
+'
+{
+"entry_type":"quote",
+"quote_id":7,
+"mood":"happy",
+"speaker":"Noureddin Sadawi",
+"quote_entry":"Love for humanity what you love for yourself!"
+}
+'
+
+
+curl -XPUT 'http://localhost:9200/my_index/my_type/1' -H
+'Content-Type: application/json' -d '
+{
+"new_field" : "new_value"
+}'
+
+
+
+
+Reindexing a document
+...Overwrites the document
+
+curl -XGET http://localhost:9200/my_index/my_type/1?pretty -H 'Content-Type: application/json'
+
+The _create endpoint
+If you do not want a document to be overwritten if it already exists, use the _create endpoint
+curl -XPUT 'http://localhost:9200/my_index/my_type/1/_create' -H 'Content-Type: application/json' -d 
+'{"new_field" : "new_value"}'
+
+
+The _update endpoint
+curl -XPOST 'http://localhost:9200/my_index/my_type/1/_update' -H 'Content-Type:application/json' -d 
+'
+{ "doc":
+{
+"entry_type":"quote",
+"quote_id":7,
+"mood":"happy",
+"speaker":"Noureddin Sadawi",
+"quote_entry":"Keep smiling"
+}
+}
+'
+
+Retrieve a document by ID
+curl -XGET http://localhost:9200/my_index/my_type/1?pretty
+
+
+
+Deleting a document by ID
+curl -XDELETE 'http://localhost:9200/my_index/my_type/1/' -H 'Content-Type: application/json'
+
+Searching
+curl -s -XGET 'http://localhost:9200/my_index/my_type/_search' -H 'Content-Type: application/json'
+
+
+
 PUT quote_index/quote/1
 {
 "quote": "I don’t count my situps. I only start counting once it starts hurting",
