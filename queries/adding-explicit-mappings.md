@@ -26,12 +26,12 @@ PUT /reviews
 PUT /reviews/_doc/1
 {
   "rating": 5.0,
-  "content": "Outstanding course! Bo really taught me a lot about Elasticsearch!",
+  "content": "Great course! I have learned a lot about Elasticsearch!",
   "product_id": 123,
   "author": {
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "johndoe123@example.com"
+    "first_name": "Jane",
+    "last_name": "Baker",
+    "email": "janebaker@example.com"
   }
 }
 ```

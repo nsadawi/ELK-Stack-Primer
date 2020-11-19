@@ -34,8 +34,8 @@ PUT /people
 ```
 POST /people/_doc
 {
-  "first_name": "Bo",
-  "last_name": "Andersen"
+  "first_name": "Noureddin",
+  "last_name": "Sadawi"
 }
 ```
 
@@ -50,7 +50,7 @@ GET /people/_search
 {
   "query": {
     "match": {
-      "first_name": "Bo"
+      "first_name": "Noureddin"
     }
   }
 }
@@ -62,7 +62,7 @@ GET /people/_search
 {
   "query": {
     "match": {
-      "last_name": "Andersen"
+      "last_name": "Sadawi"
     }
   }
 }
